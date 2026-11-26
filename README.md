@@ -2,8 +2,8 @@
 
 luoshengming 的个人网站。目标是长期维护、持续跟进最新前端技术，并与 AI 协作开发。
 
-- 预览地址（GitHub Pages）：https://luoshengming.github.io/personal-site/
-- 正式域名：https://luoshengming.com （域名切换完成前，旧站仍由 `navigation` 仓库提供）
+- 正式域名：https://luoshengming.com
+- GitHub Pages 项目地址：https://luoshengming.github.io/personal-site/ （已绑定自定义域名，会重定向到正式域名）
 
 ## 技术栈
 
@@ -49,7 +49,8 @@ src/
   config/site.ts       # 站点全部文案与数据
   lib/utils.ts         # cn 工具
 public/.nojekyll       # 关闭 GitHub Pages 的 Jekyll 处理
-.github/workflows/     # GitHub Pages 部署工作流
+public/CNAME           # 自定义域名 luoshengming.com
+.github/workflows/     # GitHub Pages 部署与 PR 校验工作流
 ```
 
 改内容只需要编辑 `src/config/site.ts`。
@@ -63,18 +64,18 @@ push 到 `main` 后，`.github/workflows/deploy.yml` 会：
 3. 执行 `pnpm build` 生成 `out/`
 4. 上传并部署到 GitHub Pages
 
-首次使用前，需要在仓库 **Settings → Pages → Build and deployment** 中将 Source 设为 **GitHub Actions**。
+Pages 已启用，Source 为 **GitHub Actions**。Pull Request 会触发 `.github/workflows/ci.yml`，依次运行 lint、类型检查和构建，作为合并前的门禁。
 
-Pull Request 会触发 `.github/workflows/ci.yml`，依次运行 lint、类型检查和构建，作为合并前的门禁。
+### 自定义域名
 
-### 切换到正式域名
+正式域名 `luoshengming.com` 已绑定到本仓库：
 
-1. 先在 `https://luoshengming.github.io/personal-site/` 验收新站。
-2. 在 `navigation` 仓库的 Pages 设置中移除 `luoshengming.com` 自定义域名。
-3. 在 `personal-site` 仓库的 Pages 设置中添加 `luoshengming.com`（并开启 Enforce HTTPS）。
-4. DNS 无需改动（当前已指向 GitHub Pages）。
-5. 重新触发部署：`configure-pages` 会返回空的 `base_path`，构建产物自动适配根路径，无需改代码。
-6. 可选：归档 `navigation` 仓库。
+- `public/CNAME` 内容为 `luoshengming.com`。
+- Pages 证书同时覆盖 `luoshengming.com` 与 `www.luoshengming.com`。
+- `www` 与 HTTP 请求都会 301 到 HTTPS 正式域名。
+- `actions/configure-pages` 会自动返回空的 `base_path`，构建产物按根路径输出。
+
+旧站保留在 https://luoshengming.github.io/navigation/ （`navigation` 仓库），不再占用自定义域名。如需更换域名，修改 `public/CNAME`、Pages 设置与 DNS 后重新部署即可。
 
 ## 静态导出约束
 
