@@ -65,6 +65,8 @@ push 到 `main` 后，`.github/workflows/deploy.yml` 会：
 
 首次使用前，需要在仓库 **Settings → Pages → Build and deployment** 中将 Source 设为 **GitHub Actions**。
 
+Pull Request 会触发 `.github/workflows/ci.yml`，依次运行 lint、类型检查和构建，作为合并前的门禁。
+
 ### 切换到正式域名
 
 1. 先在 `https://luoshengming.github.io/personal-site/` 验收新站。
