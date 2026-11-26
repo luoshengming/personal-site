@@ -34,7 +34,7 @@ pnpm format     # biome format --write
 - `next/image` 已设置 `unoptimized: true`，不要依赖图片优化服务。
 - `public/` 下的静态资源 URL 不会自动加 `basePath`；如需引用，请用 `process.env.NEXT_PUBLIC_BASE_PATH` 拼接（必要时封装 helper）。
 - 预览部署在 `https://luoshengming.github.io/personal-site/`，`NEXT_PUBLIC_BASE_PATH` 由 CI 中的 `actions/configure-pages` 注入；正式域名切换后该值为空，代码不需要改。
-- 不要提交 `public/CNAME`，除非确实要切换自定义域名（切换步骤见 README）。
+- `public/CNAME` 固定为 `luoshengming.com`，用于绑定正式域名；不要随意修改或删除。
 
 ## 代码组织
 
