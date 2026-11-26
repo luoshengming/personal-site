@@ -7,21 +7,21 @@ luoshengming 的个人网站。目标是长期维护、持续跟进最新前端�
 
 ## 技术栈
 
-| 层 | 选型 | 版本 |
-| --- | --- | --- |
-| 框架 | Next.js（App Router、React Compiler、Turbopack） | 16.4.6 |
-| UI | React | 19.3.0 |
-| 语言 | TypeScript | 5.9.3 |
-| 样式 | Tailwind CSS 4 | 4.3.3 |
-| 组件 | shadcn/ui（`base-nova`，Base UI） | 4.23.1 |
-| 动画 | Motion for React | 14.14.0 |
-| 图标 | Lucide React | 1.81.0 |
-| 主题 | next-themes | 0.4.6 |
-| 字体 | Geist（`geist` npm 包，自托管） | 1.9.2 |
-| 规范 | Biome | 2.4.2 |
-| 包管理 | pnpm | 10.6.5 |
+| 层     | 选型                                             | 版本    |
+| ------ | ------------------------------------------------ | ------- |
+| 框架   | Next.js（App Router、React Compiler、Turbopack） | 16.4.6  |
+| UI     | React                                            | 19.3.1  |
+| 语言   | TypeScript                                       | 7.0.2   |
+| 样式   | Tailwind CSS 4                                   | 4.3.5   |
+| 组件   | shadcn/ui（`base-nova`，Base UI）                | 4.23.1  |
+| 动画   | Motion for React                                 | 14.14.0 |
+| 图标   | Lucide React                                     | 1.81.0  |
+| 主题   | next-themes                                      | 0.4.6   |
+| 字体   | Geist（`geist` npm 包，自托管）                  | 1.9.2   |
+| 规范   | Biome                                            | 2.6.9   |
+| 包管理 | pnpm                                             | 12.23.0 |
 
-> TypeScript 使用 5.9.3，是因为当前 Next.js 16.4 的官方脚手架仍锁定 TS 5；等 Next 支持 TS 7 后再升级，不手动强改。
+> 依赖（含 TypeScript 7）全部使用当前 latest，并已通过 lint、typecheck 与静态导出构建。pnpm 12 默认会对发布不足 24 小时的包做供应链延迟校验；为立即使用最新版本，`pnpm-workspace.yaml` 设置了 `minimumReleaseAge: 0`。若更看重供应链防护，可去掉该配置并继续使用 pnpm 10。
 
 ## 本地开发
 

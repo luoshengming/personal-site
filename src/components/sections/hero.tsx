@@ -81,9 +81,9 @@ export function Hero() {
                 <Terminal className="ml-auto size-3.5 text-muted-foreground" />
               </div>
               <div className="space-y-2 p-5 font-mono text-[0.78rem] leading-6">
-                {terminal.lines.map((line, index) => (
+                {terminal.lines.map((line) => (
                   <p
-                    key={`${line.kind}-${index}`}
+                    key={line.text}
                     className={cn(
                       "flex gap-2",
                       line.kind === "success" && "text-brand",
