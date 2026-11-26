@@ -25,15 +25,17 @@ luoshengming 的个人网站。目标是长期维护、持续跟进最新前端�
 
 ## 本地开发
 
+项目固定使用 pnpm 12。如果本机全局 pnpm 不是 12（例如仍是 10.x），请通过 Corepack 调用，避免 Windows 上版本自动切换的兼容问题：
+
 ```bash
-pnpm install
-pnpm dev        # http://localhost:3000
-pnpm build      # 静态导出到 out/
-pnpm typecheck
-pnpm lint
+corepack pnpm install
+corepack pnpm dev        # http://localhost:3000
+corepack pnpm build      # 静态导出到 out/
+corepack pnpm typecheck
+corepack pnpm lint
 ```
 
-要求 Node.js >= 20.9（推荐当前 LTS）。
+如果全局已经是 pnpm 12，也可以直接使用 `pnpm`。要求 Node.js >= 20.9（推荐当前 LTS，开发机为 Node 26）。
 
 ## 目录结构
 

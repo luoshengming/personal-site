@@ -12,19 +12,23 @@
 - next-themes 负责深浅色
 - Geist 字体（`geist` npm 包，本地字体文件，构建时不访问 Google Fonts）
 - Biome 负责格式化与 lint
-- pnpm 作为包管理器
+- pnpm 12 作为包管理器
+
+依赖策略：所有依赖保持 npm 上的 latest（当前含 TypeScript 7）。`pnpm-workspace.yaml` 中的 `minimumReleaseAge: 0` 是刻意配置，用于立即采用最新发布，不要擅自改回。升级依赖后必须跑 `pnpm lint`、`pnpm typecheck`、`pnpm build`。
 
 ## 常用命令
 
+本机全局 pnpm 不是 12 时，用 Corepack 前缀执行（Windows 上直接运行旧 pnpm 可能触发版本切换兼容问题）：
+
 ```bash
-pnpm dev        # 本地开发
-pnpm build      # 静态导出到 out/
-pnpm typecheck  # tsc --noEmit
-pnpm lint       # biome check
-pnpm format     # biome format --write
+corepack pnpm dev        # 本地开发
+corepack pnpm build      # 静态导出到 out/
+corepack pnpm typecheck  # tsc --noEmit
+corepack pnpm lint       # biome check
+corepack pnpm format     # biome format --write
 ```
 
-提交前至少跑一次 `pnpm typecheck` 和 `pnpm build`。
+提交前至少跑一次 `corepack pnpm typecheck` 和 `corepack pnpm build`。
 
 ## 架构约束（重要）
 
